@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="assets/css/style.css">
+
+        <script src="../../../../assets/js/dropzone.min.js"></script>
+        <script src="../../../../assets/js/jscolor.js"></script>
+        <script src="../../../../assets/js/data-config.js"></script>
+
+        <script>
+            window.form_config = {
+
+                "name"         :        "promo-config",
+                "format"       :        "sticker",
+                "template"     :        "notify",
+
+                "preview"      :        "div[class=preview-box]>div",
+
+                "options"      :        {
+                    "gallery"  : {
+
+                        "url"                 :      "/file/post",
+                        "previewTemplate"     :      '<div class="dz-preview dz-file-preview" style="text-align: center"><img dz-preview-image></div>',
+
+                        "init" : function() {
+
+                            this["def-image"] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAMAAAAL34HQAAAC/VBMVEVHcEw6ORTjvBP80AFOQxD30BmqqS/qwgj/1AH8zwT90ABYQgr90QL7zgH/3AWbcQSHZgb6zgbGqR7kvAz90AM5Mw/EmgbtxijwxwuQoCurtUba01/KkwPryUbhz6v9+NP423PF0FRJTiLB4Dy21Drv1G76zALBtZns483//uTAtCbuylbE4Tm+2zq41zrR60235DL3zAu1r3r268WxzTaXvyqPqyaLsyqdyy+p2DG4yDOtoYHJu5TSxKSu2jSDqCeYrit7kSairzC2slSRjHfb1Lvcy2hogiFviCSDlSt9nSWKnCqdoVdykiJjfSHzwwVwXxiRi2XrxBKHpiZRaBlFWxdSbxpZch1eeR2Voy+WvyyBfGa4q5Hs27mtmxpdWUGdiUCdtzhnjx5KYRdAVhM0QhM5ShQ/UBWviASgmHYmJiM6OjRhYFVybVl/ekldZR8jMAwtOQ84UREwRw4sKyhBQDlYV000OxpYVk1QTkVFSCovOxQzMi5HRj90c2N1izb28d0iIh8bGxkYGBUTFBQWFxESEg4fHhzRogkNDQ8IBwiIjU7Cshu/vj7cvRAPEAxBPSaAcB4lJQ4dJwooKhYXIAiZgBsmOQ0sQA00SxFLaBnhug5Udxqko5Hg4MjWrw7eyRbFoRfbnwPQ3DCuujNTWSZrcD/5ygOLjRlchBlEYxvGzzjLwx5cZy3o8T5vfi94ghmCtiHs2Bumgw3W6jv3xwJrYRO5jgzwvwGsrR30xALVqg48Wxk/Kw3+xwAxNB73xAH1wABSUxFscRj8vwD0vQDuugHhpADlrgFynyHstQHyuQDorABaeBwhFgk/ThPxtQDLmQXurwD6tgBydhjZoAO8hwL4rgCKcA8vQBH3tADwsgAmKRDsrQCzfgPwpgDxrwChcQOCLwvrqADuqgAZIQweJg/hnwDrowDtpgDkngD2qQCMqivqoADtowDpngDpnQDlmwDxoQAbJQjPigDhlwDllQDpmwBGWRnomgDmmQCou2Lk5sucn49NWjfP9M7bAAAA/3RSTlMAFI7AMbJU0P///0Hv//+CbP94vP8jnv/GQSc9t/////8YCXjNYv////9iktP0sKf/2///2//+/////////+r//v//////////////////51f//9v///////+e/v/////5yf///////43////+//+c/////////3bD//+a//6Tefv/////////y///////pP///////////////////P////6t/////////////////////v/+////////uf//////////////2f/////m1f/c//7//8z/vv/+7fv/Xf+v8v+b////zLP//////8n////////r0enI//L//+mXruZf9aSuAAAacUlEQVR4AezTgxrjUBBA4bp3prZt27bb93+bDZbR1p/uXyOTE6koiqIoiqIoiqK+QK3RytKo752ik5+iNzxTZSSAcojxzi6TGS0WC0qz2h7PsltBDJkbwwFW531TXATkuNFt9Tyc5ZXIQoeP7wL0/2/5QJB5CrpBnhtI6OGssDgLI9FYHCzACSosmwgmU2l2lZmsUhWQzMNZfgICxJfLFwpxLstBipI9oVAwVCpXqrV6OsF81lsU9xaWHq1KNoRZiM1crNCK+pCbqRctEjJUy+10u9Pt9PqDYTXIVJqVotxAHs5Sm4loZ43GsVhrEkFgmROCJTLVaXc273bn3cWss5xXmcvfQECxC/WPZnmswilktZ7EWq3NFvlKg+D4VTq7/eJwnB333dOxO0yxlw1R3FlA/I9mmURZ7jObFWuNs8gAq/fvvweDqct1t98vmOfTftGd13TMiXBzO36QWhdsjhpxGMDrnZMVnlJvzq0u5xdSXautbwzYuJAh1g7ckQ5tgYSUc3f9pv0jm3Phybsa/zHyAsM8w8V+HZY1P/rYHC5McHuBtSmCmHcX16O5bfdH6ssdS7PLK/HE9HRydmYm9cP05+m33UNjvDzBxPosWAnDtSmweF4Q934Mi341w09kF0c3DNZ6Lr9cKJbK5UqhUFie/SFR/O6Hebi/CqynufzhYj4Iyao+VlvAiop7N3+8ea9Uw3K9MVpdW4bNQqnVarsplcqVP/5cSSTGYSi3vckC6UHZyEiAWvtiPxy25JHLinkuUSCKKmezR5vH3MiqKsvwKwPROp1OqfSXd8Z8LRisASyyJfKQC7biY30a9mTGLjZ4abcILtiOPFVlTdc0VVMwpsQNpRR+FAz3yn//Mw+wsYdYI+umJv9dK2P48mChWW8+treZRl0SYps2iXv3ihMEWJpGDNPqdi2r5wf+mjXbIn2CdfXY0f+Y9Wj9SKBa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";
+                            this.element.gallery = this["def-image"];
+                            this.on("addedfile", function(e){
+
+                                this.files[1] != null
+                                    ? this.removeFile(this.files[0])
+                                        : false;
+
+                                this.on("thumbnail", function(e){
+                                    var _this = this.element;
+                                    _this.gallery = this.files[0].dataURL;
+
+                                    var img_box = _this.querySelector("[dz-preview-image]");
+
+                                    img_box.style.height = "80px";
+                                    img_box.style.width = "80px";
+                                    
+                                    img_box.src = _this.gallery;
+                                });
+                            });
+
+                        }
+                    },
+
+                    "controls" : {
+                        "button"   :   "button.preview-controls",
+                        "play"     :   "preview-controls--play",
+                        "pause"    :   "preview-controls--pause"
+                    }
+                }
+                
+            };
+
+            var PreviewResize = function(node, orientation){
+
+                var _this = node;
+                var _orientation = orientation || "default";
+
+                var _action = {
+                    "portrait"    :   "remove",
+                    "landscape"   :   "add",
+                    "default"     :   "toggle"
+                };
+
+                document.querySelector(form_config.preview)
+                        .classList[_action[_orientation]]("land-scape");
+
+                _this && _this
+                    .classList[_action[_orientation]]("resize-controls--lend");
+
+                form_config.maker
+                    .resize();
+            };
+
+        </script>
+
+    </head>
+    <body>
+
+        <div class="preview-box">
+            <div class="pre-view port-rait"></div>
+            <div class="controls-box">
+                <button class="resize-controls" onclick="PreviewResize(this)">⇕</button>
+                <button class="preview-controls"></button>
+            </div>
+        </div>
+
+        <div class="form-box">
+            <form name="promo-config">
+
+                <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+                <h1>Иконка</h1>
+
+                <div data-type="options" data-row="icon">
+                    <div class="controls-chain" style="margin-bottom: 0">
+                        <div style="flex-grow: 5">
+                            <span class="description">Картинка</span>
+                            <div data-set="drop-zone" data-name="image" data-value="gallery"></div>
+                        </div>
+                        <div style="flex-grow: 3.3">
+                            <span class="description">Настройки</span>
+                            <input type="checkbox" data-name="condition" data-set="checkbox" data-value="checked" checked="true">Использовать<br>
+                            <input type="checkbox" data-name="animation" data-set="checkbox" data-value="checked" checked="true">Анимировать<br>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+                <h1>Заголовок</h1>
+                <div data-type="list" data-row="title">
+                    <div data-type="options" data-item>
+                        <div class="wrap-txt">
+                            <input type="text" value="Введите заголовок" data-option="text-input" data-name="content" data-set="text">
+                        </div>
+
+                        <div class="controls-chain">
+                            <div style="flex-grow: 2">
+                                <span class="description">Цвет текста</span>
+                                <input value="ffffff" data-option="color-input" data-name="color" data-set="js-color">
+                            </div>
+                            <div style="flex-grow: 2">
+                                <span class="description">Размер текста</span>
+                                <input type="range" min="0.5" max="1.8" step="any" value="1" data-option="range-input" data-name="size" data-set="range">
+                            </div>
+                            <div style="flex-grow: 2">
+                                <span class="description">Курсив</span>
+                                <select data-option="range-input" data-name="weight">
+                                    <option value="normal">Normal</option>
+                                    <option value="bold">Bold</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="list-buttons">
+                            <button data-list-add>Добавить текст</button>
+                            <button data-list-remove>✕</button>
+                        </div>
+                    </div>
+                </div>
+
+                <h4>- Интервал заголовка</h4>
+                <div data-type="value" data-row="title-duration" class="wrap-txt">
+                    <input type="number" value="3" data-option="text-input" data-set="interval">
+                </div>
+
+                <h4>- Фон текста</h4>
+                <div data-type="value" data-row="title-background" class="wrap-txt">
+                    <input value="5b4fbe" data-option="color-input" data-set="js-color">
+                </div>
+
+                <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+                <h1>Описание</h1>
+                <div data-type="list" data-row="description">
+                    <div data-type="options" data-item>
+                        <div class="wrap-txt">
+                            <input type="text" value="Введите текст описания" data-option="text-input" data-name="content" data-set="text">
+                        </div>
+
+                        <div class="controls-chain">
+                            <div style="flex-grow: 2">
+                                <span class="description">Цвет текста</span>
+                                <input value="000000" data-option="color-input" data-name="color" data-set="js-color">
+                            </div>
+                            <div style="flex-grow: 2">
+                                <span class="description">Размер текста</span>
+                                <input type="range" min="0.5" max="1.8" step="any" value="1" data-option="range-input" data-name="size" data-set="range">
+                            </div>
+                            <div style="flex-grow: 2">
+                                <span class="description">Курсив</span>
+                                <select data-option="range-input" data-name="weight">
+                                    <option value="normal">Normal</option>
+                                    <option value="bold">Bold</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="list-buttons">
+                            <button data-list-add>Добавить текст</button>
+                            <button data-list-remove>✕</button>
+                        </div>
+                    </div>
+                </div>
+
+                <h4>- Интервал описания</h4>
+                <div data-type="value" data-row="description-duration" class="wrap-txt">
+                    <input type="number" value="3" data-option="text-input" data-set="interval">
+                </div>
+
+                <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+                <h1>Фон</h1>
+                <div data-type="value" data-row="background" class="wrap-txt">
+                    <input value="ffffff" data-option="color-input" data-set="js-color">
+                </div>
+
+                <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+                <h1>Кнопка</h1>
+                <div data-type="options" data-row="button">
+                    <div class="wrap-checkbox">
+                        <input type="checkbox" data-name="condition" data-set="checkbox" data-value="checked" checked="true">Использовать<br>
+                    </div>
+                    <div class="wrap-txt">
+                        <input type="text" value="КНОПКА" data-option="text-input" data-name="content" data-set="text">
+                    </div>
+                    <div class="controls-chain">
+                        <div style="flex-grow: 3.3">
+                            <span class="description">Цвет</span>
+                            <input value="a7be46" data-option="color-input" data-name="color" data-set="js-color">
+                        </div>
+                        <div style="flex-grow: 3.3">
+                            <span class="description">Размер</span>
+                            <input type="range" min="0.5" max="1.8" step="any" value="1" data-option="range-input" data-name="size" data-set="range">
+                        </div>
+                        <div style="flex-grow: 3.3">
+                            <span class="description">Курсив</span>
+                            <select data-option="range-input" data-name="weight">
+                                    <option value="normal">Normal</option>
+                                    <option value="bold">Bold</option>
+                                </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+            </form>
+        </div>
+
+        <script>
+
+            ;(function(){
+
+                /* ------- form ------- */
+
+                new data_config("form[name=promo-config]", form_config);
+
+
+
+                var composer = document.createElement("script");
+
+                composer.src = "../../../../files/js/maker/desktop/"
+                    + form_config.format
+                        + "/maker-composer.js?" + Math.random();
+
+                document.head.appendChild(composer);
+
+
+                
+
+                composer.onload = function(){
+                    var template = document.createElement("script");
+
+                    template.src = "../../../../files/js/maker/mobile/"
+                        + form_config.format + "/"
+                            + form_config.template + "/maker-set-up.js?" + Math.random();
+
+                    document.head.appendChild(template);
+
+                    template.onload = function(){
+                        promo_set_up(promo_composer(), form_config);
+                    };
+                };
+
+            })();
+
+        </script>
+    </body>
+</html>
