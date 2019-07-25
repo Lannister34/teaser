@@ -312,7 +312,8 @@
             "transition" : "opacity .5s .4s",
             "border-style" : "solid",
             "border-color" : "rgba(255, 255, 255, 0)",
-            "max-height" : "100%"
+            "max-height" : "100%",
+            "overflow" : "hidden"
         },
 
         ".—prx—img-box, .—prx—text-box" : {
