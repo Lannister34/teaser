@@ -71,10 +71,8 @@ window.data_config = function(form, config){
 
             "checkbox" : function(e){
                 e.onchange = function(){
-                var data = config.maker.output();
-                data.button.display = this.checked ? true : false;
                     this.maker.options
-                            .re_init(data);
+                            .re_init(this.maker.options.form.maker.output());
                 };
             },
 
@@ -122,13 +120,8 @@ window.data_config = function(form, config){
         },
 
         "change-data" : function(e){
-            var parent = e.maker.parent.maker.name;
-            var name = ~parent.indexOf('texts') ? (~e.maker.name.indexOf('title') ? parent + 'title'
-                       : ~e.maker.name.indexOf('content') ? parent + 'content'  : parent) :
-                       ~parent.indexOf('button') ? parent + '-in' :  parent;
-                name = name === 'background' ? 'img-box' : name;
             return {
-                "name" : name,
+                "name" : e.maker.parent.maker.name,
                 "data" : e.maker.parent.maker.output()
             };
         }
@@ -408,6 +401,7 @@ window.data_config = function(form, config){
                 .run(function(row){
                     result[row.maker.name] = row.maker.output();
                 });
+                console.log(result);
             return result;
         },
 

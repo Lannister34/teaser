@@ -15,7 +15,7 @@
 
                 "name"         :        "promo-config",
                 "format"       :        "sticker",
-                "template"     :        "bevel",
+                "template"     :        "teaser",
 
                 "preview"      :        "div[class=preview-box]>div",
 
@@ -92,13 +92,20 @@
 
                 <fieldset data-type="list" data-row="texts">
                     <legend>Текст</legend>
-
                     <fieldset data-type="options" data-item>
+                          <input type="text" placeholder="Заголовок (необязательно)" value="" data-option="text-input" data-name="title" data-set="text">
+                          <input value="#000000" data-option="color-input" data-name="title_color" data-set="js-color">
+                          <input type="range" min="0.5" max="1.5" step="any" value="1" data-option="range-input" data-name="title_size" data-set="range">
+                          <select data-option="select-input" data-name="title_weight">
+                              <option value="normal">Normal</option>
+                              <option value="bold" selected>Bold</option>
+                          </select>
+
                         <input type="text" value="Введите текст для этого блока" data-option="text-input" data-name="content" data-set="text">
-                        <input value="#000000" data-option="color-input" data-name="color" data-set="js-color">
-                        <input type="range" min="0.5" max="1.5" step="any" value="1" data-option="range-input" data-name="size" data-set="range">
-                        <select data-option="select-input" data-name="weight">
-                            <option value="normal">Normal</option>
+                        <input value="#000000" data-option="color-input" data-name="content_color" data-set="js-color">
+                        <input type="range" min="0.5" max="1.5" step="any" value="1.1" data-option="range-input" data-name="content_size" data-set="range">
+                        <select data-option="select-input" data-name="content_weight">
+                            <option value="normal" selected>Normal</option>
                             <option value="bold">Bold</option>
                         </select>
                         <button data-list-remove>✕</button>
@@ -135,14 +142,21 @@
                 <fieldset data-type="options" data-row="button">
                     <legend>Кнопка</legend>
 
-                    <input type="text" value="Lorem ipsum" data-option="text-input" data-name="content" data-set="text">
+                    <input type="text" value="ПЕРЕЙТИ" data-option="text-input" data-name="content" data-set="text">
                     <input value="ffffff" data-option="color-input" data-name="color" data-set="js-color">
-                    <input value="ff7800" data-option="color-input" data-name="background" data-set="js-color">
-                    <input type="range" min="0.5" max="1.5" step="any" value="1" data-option="range-input" data-name="size" data-set="range">
+                    <select data-option="range-input" data-name="animation">
+                        <option value="color-red" selected>Красный</option>
+                        <option value="color-green">Зелёный</option>
+                    </select>
+                    <input type="range" min="0.5" max="1.36" step="any" value="1" data-option="range-input" data-name="size" data-set="range">
                     <select data-option="range-input" data-name="weight">
                         <option value="normal">Normal</option>
-                        <option value="bold">Bold</option>
+                        <option value="bold" selected>Bold</option>
                     </select>
+                    <label id="en-butt">
+                      <input checked type="checkbox" data-option="button" data-name="display" data-set="checkbox" data-value="checked" />
+                      <span>Включить кнопку</span>
+                    </label>
                 </fieldset>
 
                 <hr>
@@ -184,7 +198,7 @@
 
                     template.src = "../../../../files/js/maker/mobile/"
                         + form_config.format + "/"
-                            + form_config.template + "/set-up1.js?" + Math.random();
+                            + form_config.template + "/maker-set-up.js?" + Math.random();
 
                     document.head.appendChild(template);
 
