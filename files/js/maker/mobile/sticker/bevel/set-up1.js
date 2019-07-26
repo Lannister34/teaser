@@ -407,6 +407,14 @@
             "right" : "0"
         },
 
+        ".—prx—text-box-1" : {
+            "display" : "-ms-flex",
+        },
+
+        ".—prx—text-box-2" : {
+            "display" : "flex",
+        },
+
         ".—prx—text span" : {
           "vertical-align" : "middle",
           "display" : "table-cell",
@@ -542,7 +550,7 @@
           "text-box" : {
               "p" : "content-box",
               "a" : {
-                  "class" : '—prx—text-box'
+                  "class" : '—prx—text-box —prx—text-box-1 —prx—text-box-2'
               },
               "s" : {
                   "opacity" : 0,
