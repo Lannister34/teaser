@@ -295,6 +295,13 @@
 
     /* ------------------------ CSS ------------------------ */
     var css_rules = {
+        "html, body" : {
+          "padding" : "0",
+          "margin" : "0",
+          "height" : "100%",
+          "width" : "100%"
+        },
+
         ".—prx—size" : {
           "opacity" : "0",
           "position" : "fixed",
@@ -305,7 +312,6 @@
 
         ".—prx—img-box" : {
             "position" : "absolute",
-            "height" : "100%",
             "top" : 0,
             "left" : 0,
             "box-sizing" : "border-box",
