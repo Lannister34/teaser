@@ -401,7 +401,6 @@ window.data_config = function(form, config){
                 .run(function(row){
                     result[row.maker.name] = row.maker.output();
                 });
-                console.log(result);
             return result;
         },
 
