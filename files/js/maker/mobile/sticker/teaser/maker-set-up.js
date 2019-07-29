@@ -422,12 +422,22 @@
         },
 
         ".—prx—text-box-1" : {
-            "display" : "-ms-flex",
+            "display" : "-webkit-box",
         },
 
         ".—prx—text-box-2" : {
+            "display" : "-moz-box",
+        },
+
+        ".—prx—text-box-3" : {
+            "display" : "-ms-flexbox",
+        },
+
+        ".—prx—text-box-4" : {
             "display" : "flex",
         },
+
+
 
         ".—prx—text span" : {
           "vertical-align" : "middle",
