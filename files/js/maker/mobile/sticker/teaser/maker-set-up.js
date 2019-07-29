@@ -408,11 +408,12 @@
             "transition" : "opacity .5s .4s, transform .5s .4s",
             "text-align" : "center",
             "max-height" : "100%",
-            "display" : "-webkit-flex",
+            "display" : "-webkit-box",
             "-webkit-flex-direction" : "column",
             "-ms-flex-direction" : "column",
             "flex-direction" : "column",
             "-webkit-box-orient" : "vertical",
+            "-webkit-box-pack" : "justify",
             "-webkit-justify-content" : "space-between",
             "justify-content" : "space-between",
             "height" : "100%",
@@ -422,22 +423,20 @@
         },
 
         ".—prx—text-box-1" : {
-            "display" : "-webkit-box",
-        },
+              "display" : "-webkit-flex",
+          },
 
-        ".—prx—text-box-2" : {
-            "display" : "-moz-box",
-        },
+          ".—prx—text-box-2" : {
+              "display" : "-moz-box",
+          },
 
-        ".—prx—text-box-3" : {
-            "display" : "-ms-flexbox",
-        },
+          ".—prx—text-box-3" : {
+              "display" : "-ms-flexbox",
+          },
 
-        ".—prx—text-box-4" : {
-            "display" : "flex",
-        },
-
-
+          ".—prx—text-box-4" : {
+              "display" : "flex",
+          },
 
         ".—prx—text span" : {
           "vertical-align" : "middle",
@@ -574,7 +573,7 @@
           "text-box" : {
               "p" : "content-box",
               "a" : {
-                  "class" : '—prx—text-box —prx—text-box-1 —prx—text-box-2'
+                  "class" : '—prx—text-box —prx—text-box-1 —prx—text-box-2 —prx—text-box-3 —prx—text-box-4'
               },
               "s" : {
                   "opacity" : 0,
