@@ -172,6 +172,7 @@
        } else if (nd === 'background') {
          nd = 'img-box';
        };
+      console.log(nd, init);
         "style-init" in node_tree[nd] &&
             engine.css
                 .style(node_tree[nd].src,
@@ -413,6 +414,9 @@
             "-ms-flex-direction" : "column",
             "flex-direction" : "column",
             "-webkit-box-orient" : "vertical",
+            "-webkit-flex-wrap" : "wrap",
+            "-ms-flex-wrap" : "wrap",
+            "flex-wrap" : "wrap",
             "-webkit-justify-content" : "space-between",
             "justify-content" : "space-between",
             "height" : "100%",
