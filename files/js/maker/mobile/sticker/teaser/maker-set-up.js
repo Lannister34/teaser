@@ -593,6 +593,7 @@
                       "border" : marg + "px solid rgba(0, 0, 0, 0)",
                       "-webkit-justify-content" : (o.portrait && data.button.display) ? "space-between" : "center",
                       "justify-content" : (o.portrait && data.button.display) ? "space-between" : "center",
+                      "-webkit-box-pack" : "justify" : "center"
                   }
               }
           },
