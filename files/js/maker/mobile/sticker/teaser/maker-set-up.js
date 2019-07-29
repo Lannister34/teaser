@@ -342,9 +342,11 @@
         },
 
         ".—prx—image-item" : {
-            "-webkit-transition" : "opacity .4s,transform .4s",
+            "-webkit-transition" : "opacity .4s,-webkit-transform .4s",
+            "transition" : "opacity .4s,-webkit-transform .4s",
             "-o-transition" : "opacity .4s,transform .4s",
             "transition" : "opacity .4s,transform .4s",
+            "transition" : "opacity .4s,transform .4s,-webkit-transform .4s",
             "box-shadow" : "10px 0px 25px 0px rgba(0, 0, 0, 0.4)",
         },
 
@@ -383,9 +385,11 @@
         ".—prx—title, .—prx—text" : {
           "width" : "100%",
           "display" : "table",
-          "-webkit-transition" : "opacity .4s,transform .4s",
+          "-webkit-transition" : "opacity .4s,-webkit-transform .4s",
+          "transition" : "opacity .4s,-webkit-transform .4s",
           "-o-transition" : "opacity .4s,transform .4s",
-          "transition" : "opacity .4s,transform .4s"
+          "transition" : "opacity .4s,transform .4s",
+          "transition" : "opacity .4s,transform .4s,-webkit-transform .4s",
         },
 
         ".—prx—title" : {
@@ -401,9 +405,11 @@
 
         ".—prx—text-box" : {
             "z-index" : 1,
-            "-webkit-transition" : "opacity .4s,transform .4s",
-            "-o-transition" : "opacity .4s,transform .4s",
+            "-webkit-transition" : "opacity .5s .4s, -webkit-transform .5s .4s",
+            "transition" : "opacity .5s .4s, -webkit-transform .5s .4s",
+            "-o-transition" : "opacity .5s .4s, transform .5s .4s",
             "transition" : "opacity .5s .4s, transform .5s .4s",
+            "transition" : "opacity .5s .4s, transform .5s .4s, -webkit-transform .5s .4s",
             "text-align" : "center",
             "max-height" : "100%",
             "display" : "-webkit-box",
