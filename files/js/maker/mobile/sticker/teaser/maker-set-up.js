@@ -256,7 +256,6 @@
               var d = e.device.type.mobile;
               return {
                 "width" : o.portrait ? "" : data.button.display ? "65%" : "100%",
-                "display" : o.portrait ? "table-row" : "block"
               }
             }
         };
@@ -275,7 +274,6 @@
               var o = e.device.orientation;
               var d = e.device.type.mobile;
               return {
-                "display" : o.portrait ? "table-header-group" : "block",
                 "width" : o.portrait ? "" : data.button.display ? "65%" : "100%",
                 "padding-top" : o.portrait ? d ? "10px" : "20px" : ""
               }
@@ -361,7 +359,7 @@
         },
 
         ".—prx—button" : {
-            "display" : "table-footer-group",
+            "display" : "block",
             "vertical-align" : "bottom",
             "right" : "0",
             "bottom" : "50%",
@@ -393,13 +391,13 @@
         },
 
         ".—prx—title" : {
-          "display" : "table-header-group",
+          "display" : "block",
           "text-align" : "center",
           "vertical-align" : "top"
         },
 
         ".—prx—text" : {
-          "display" : "table-row",
+          "display" : "block",
           "vertical-align" : "middle"
         },
 
@@ -619,7 +617,6 @@
                 var d = e.device.type.mobile;
                 var o = e.device.orientation;
                 return {
-                  "display" : o.portrait ? "table-footer-group" : "block",
                   "position" : o.portrait ? "static" : "absolute",
                   "border-left-width" : o.landscape ? "20px" : "",
                   "width" : o.landscape ? "35%" : "",
