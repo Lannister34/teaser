@@ -321,6 +321,8 @@
             "top" : 0,
             "left" : 0,
             "box-sizing" : "border-box",
+            "-webkit-transition" : "opacity .5s .4s",
+            "-o-transition" : "opacity .5s .4s",
             "transition" : "opacity .5s .4s",
             "border-style" : "solid",
             "border-color" : "rgba(255, 255, 255, 0)",
@@ -340,6 +342,8 @@
         },
 
         ".—prx—image-item" : {
+            "-webkit-transition" : "opacity .4s,transform .4s",
+            "-o-transition" : "opacity .4s,transform .4s",
             "transition" : "opacity .4s,transform .4s",
             "box-shadow" : "10px 0px 25px 0px rgba(0, 0, 0, 0.4)",
         },
@@ -353,10 +357,6 @@
 
         },
 
-        ".—prx—message-box" : {
-            "transition" : "opacity .4s,transform .4s",
-            "display" : "table"
-        },
 
         ".—prx—button" : {
             "display" : "block",
@@ -380,13 +380,11 @@
             "font-family" : "sans-serif"
         },
 
-        ".—prx—shape-box" : {
-            "transition" : "right .5s ease-in-out",
-        },
-
         ".—prx—title, .—prx—text" : {
           "width" : "100%",
           "display" : "table",
+          "-webkit-transition" : "opacity .4s,transform .4s",
+          "-o-transition" : "opacity .4s,transform .4s",
           "transition" : "opacity .4s,transform .4s"
         },
 
@@ -403,6 +401,8 @@
 
         ".—prx—text-box" : {
             "z-index" : 1,
+            "-webkit-transition" : "opacity .4s,transform .4s",
+            "-o-transition" : "opacity .4s,transform .4s",
             "transition" : "opacity .5s .4s, transform .5s .4s",
             "text-align" : "center",
             "max-height" : "100%",
