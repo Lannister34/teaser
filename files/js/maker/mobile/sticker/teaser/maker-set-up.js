@@ -389,7 +389,6 @@
             "text-overflow" : "ellipsis",
             "display" : "block",
             "margin" : "0 auto",
-            "animation-name" : "—prx—button-color",
             "animation-duration" : "1s",
             "animation-iteration-count" : "infinite",
             "font-family" : "sans-serif"
@@ -660,6 +659,7 @@
               var d = e.device.type.mobile;
               var o = e.device.orientation;
                 return {
+                    "animation-name" : data.button.animation ? "—prx—button-color" : "",
                     "padding" : e.device.type.mobile && o.portrait ?
                                     6 * e.scale + "px " + 12 * e.scale + "px"
                                         : !e.device.type.mobile && o.portrait ?
