@@ -201,7 +201,7 @@ hr {
     margin : 20px;
 }
 
-.en-butt {
+#en-butt {
   display: flex;
   width: 100%;
   float: left;
@@ -209,7 +209,21 @@ hr {
 
 }
 
-.en-butt > [type="checkbox"] {
+#en-butt > [type="checkbox"] {
+  float: none;
+  width: 30px;
+  height: 30px;
+  margin-right: 20px;
+}
+
+#en-anim {
+  display: flex;
+  width: 100%;
+  float: left;
+  align-items: center;
+}
+
+#en-anim > [type="checkbox"] {
   float: none;
   width: 30px;
   height: 30px;
