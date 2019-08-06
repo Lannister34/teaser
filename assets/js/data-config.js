@@ -358,7 +358,6 @@ window.data_config = function(form, config){
             var result = {};
             this.options.loop(this.issues)
                 .run(function(option){
-
                     result[option.maker.name] =
                         option[option.maker.value];
                 });

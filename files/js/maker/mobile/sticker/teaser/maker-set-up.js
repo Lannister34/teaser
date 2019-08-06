@@ -115,10 +115,14 @@
     var set_inits = function(){
       inits_config.text = new create_init(data.text_duration, {
           "opacity" : 1,
+          "-webkit-transform" : "translateX(0)",
+          "-ms-transform" : "translateX(0)",
           "transform" : "translateX(0)",
           "position" : ""
       }, {
           "opacity" : 0,
+          "-webkit-transform" : "translateX(-100%)",
+          "-ms-transform" : "translateX(-100%)",
           "transform" : "translateY(-100%)",
           "top" : "30%",
           "position" : "absolute"
@@ -126,10 +130,14 @@
 
       inits_config.title = new create_init(data.text_duration, {
           "opacity" : 1,
+          "-webkit-transform" : "translateX(0)",
+          "-ms-transform" : "translateX(0)",
           "transform" : "translateX(0)",
           "position" : ""
       }, {
           "opacity" : 0,
+          "-webkit-transform" : "translateX(-100%)",
+          "-ms-transform" : "translateX(-100%)",
           "transform" : "translateY(-100%)",
           "top" : "0",
           "position" : "absolute"
@@ -138,9 +146,13 @@
 
       inits_config.images = new create_init(data.image_duration, {
           "opacity" : 1,
+          "-webkit-transform" : "scale(1)",
+          "-ms-transform" : "scale(1)",
           "transform" : "scale(1)"
       }, {
           "opacity" : 0,
+          "-webkit-transform" : "scale(1.2)",
+          "-ms-transform" : "scale(1.2)",
           "transform" : "scale(1.2)"
       });
   };
@@ -377,6 +389,7 @@
             "text-overflow" : "ellipsis",
             "display" : "block",
             "margin" : "0 auto",
+            "animation-name" : "—prx—button-color",
             "animation-duration" : "1s",
             "animation-iteration-count" : "infinite",
             "font-family" : "sans-serif"
@@ -450,28 +463,17 @@
     };
 
     var css_animations = {
-      "—prx—color-red" : {
+      "—prx—button-color" : {
         "from" : {
-          "background-color" : "#ff0000"
+          "filter" : "grayscale(50%)"
         },
         "50%" : {
-          "background-color" : "#a70505"
+          "filter" : "grayscale(0%)"
         },
         "to" : {
-          "background-color" : "#ff0000"
+          "filter" : "grayscale(50%)"
         }
       },
-      "—prx—color-green" : {
-        "from" : {
-          "background-color" : "#37c500"
-        },
-        "50%" : {
-          "background-color" : "#268700"
-        },
-        "to" : {
-          "background-color" : "#37c500"
-        }
-      }
     };
 
 
@@ -581,10 +583,14 @@
               },
               "s" : {
                   "opacity" : 0,
+                  "-webkit-transform" : "translateX(-15%)",
+                  "-ms-transform" : "translateX(-15%)",
                   "transform" : "translateX(-15%)"
               },
               "g" : {
                   "opacity" : 1,
+                  "-webkit-transform" : "translateX(0)",
+                  "-ms-transform" : "translateX(0)",
                   "transform" : "translateX(0)"
               },
               "r" : function(e){
@@ -627,6 +633,8 @@
                   "position" : o.portrait ? "static" : "absolute",
                   "border-left-width" : o.landscape ? "20px" : "",
                   "width" : o.landscape ? "35%" : "",
+                  "-webkit-transform" : o.landscape ? "translateY(50%)" : "",
+                  "-ms-transform" : o.landscape ? "translateY(50%)" : "",
                   "transform" : o.landscape ? "translateY(50%)" : "",
                 }
               }
@@ -642,7 +650,7 @@
             "style-init" : function(init){
                 var ini = init.button ? init.button : init;
                 return {
-                    "animation-name" : '—prx—' + ini.animation,
+                    "background-color" : "#" + ini.bg_color,
                     "color" : "#" + ini.color,
                     "font-size" : ini.size + "em",
                     "font-weight" : ini.weight,

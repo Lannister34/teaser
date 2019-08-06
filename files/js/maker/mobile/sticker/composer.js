@@ -180,7 +180,29 @@
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-    var _config = window.GLOBAL_CONFIG;
+    var _embeded = false;
+    var _config = null;
+
+    window.GLOBAL_CONFIG && (
+        _config = window.GLOBAL_CONFIG
+    ) || (
+        _config = /global_config=([^\&]+)(\&|$)/.exec(document.location.search),
+        _config && (
+            _config = JSON.parse(
+                decodeURIComponent(
+                    atob(_config[1])
+                )
+            ),
+            _embeded = true
+        )
+    );
+
+    if(!_config){
+        return;
+    }
+
+
+    //var _config = window.GLOBAL_CONFIG
     var _cmnd   = {};
 
     _cmnd.fetch  = function(cmnd){
@@ -645,6 +667,7 @@
         "cmnd"      :    _cmnd,
         "tracker"   :    _tracker,
         "config"    :    _config,
+        "embeded"   :    _embeded,
         "page"      :    _page,
         "events"    :    _events,
         "box"       :    _box

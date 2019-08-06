@@ -115,10 +115,14 @@
     var set_inits = function(){
       inits_config.text = new create_init(data.text_duration, {
           "opacity" : 1,
+          "-webkit-transform" : "translateX(0)",
+          "-ms-transform" : "translateX(0)",
           "transform" : "translateX(0)",
           "position" : ""
       }, {
           "opacity" : 0,
+          "-webkit-transform" : "translateX(-100%)",
+          "-ms-transform" : "translateX(-100%)",
           "transform" : "translateY(-100%)",
           "top" : "30%",
           "position" : "absolute"
@@ -126,10 +130,14 @@
 
       inits_config.title = new create_init(data.text_duration, {
           "opacity" : 1,
+          "-webkit-transform" : "translateX(0)",
+          "-ms-transform" : "translateX(0)",
           "transform" : "translateX(0)",
           "position" : ""
       }, {
           "opacity" : 0,
+          "-webkit-transform" : "translateX(-100%)",
+          "-ms-transform" : "translateX(-100%)",
           "transform" : "translateY(-100%)",
           "top" : "0",
           "position" : "absolute"
@@ -138,9 +146,13 @@
 
       inits_config.images = new create_init(data.image_duration, {
           "opacity" : 1,
+          "-webkit-transform" : "scale(1)",
+          "-ms-transform" : "scale(1)",
           "transform" : "scale(1)"
       }, {
           "opacity" : 0,
+          "-webkit-transform" : "scale(1.2)",
+          "-ms-transform" : "scale(1.2)",
           "transform" : "scale(1.2)"
       });
   };
@@ -172,7 +184,6 @@
        } else if (nd === 'background') {
          nd = 'img-box';
        };
-      console.log(nd, init);
         "style-init" in node_tree[nd] &&
             engine.css
                 .style(node_tree[nd].src,
@@ -257,7 +268,6 @@
               var d = e.device.type.mobile;
               return {
                 "width" : o.portrait ? "" : data.button.display ? "65%" : "100%",
-                "display" : o.portrait ? "table-row" : "block"
               }
             }
         };
@@ -276,7 +286,6 @@
               var o = e.device.orientation;
               var d = e.device.type.mobile;
               return {
-                "display" : o.portrait ? "table-header-group" : "block",
                 "width" : o.portrait ? "" : data.button.display ? "65%" : "100%",
                 "padding-top" : o.portrait ? d ? "10px" : "20px" : ""
               }
@@ -324,6 +333,8 @@
             "top" : 0,
             "left" : 0,
             "box-sizing" : "border-box",
+            "-webkit-transition" : "opacity .5s .4s",
+            "-o-transition" : "opacity .5s .4s",
             "transition" : "opacity .5s .4s",
             "border-style" : "solid",
             "border-color" : "rgba(255, 255, 255, 0)",
@@ -343,7 +354,11 @@
         },
 
         ".—prx—image-item" : {
+            "-webkit-transition" : "opacity .4s,-webkit-transform .4s",
+            "transition" : "opacity .4s,-webkit-transform .4s",
+            "-o-transition" : "opacity .4s,transform .4s",
             "transition" : "opacity .4s,transform .4s",
+            "transition" : "opacity .4s,transform .4s,-webkit-transform .4s",
             "box-shadow" : "10px 0px 25px 0px rgba(0, 0, 0, 0.4)",
         },
 
@@ -356,13 +371,9 @@
 
         },
 
-        ".—prx—message-box" : {
-            "transition" : "opacity .4s,transform .4s",
-            "display" : "table"
-        },
 
         ".—prx—button" : {
-            "display" : "table-footer-group",
+            "display" : "block",
             "vertical-align" : "bottom",
             "right" : "0",
             "bottom" : "50%",
@@ -383,40 +394,42 @@
             "font-family" : "sans-serif"
         },
 
-        ".—prx—shape-box" : {
-            "transition" : "right .5s ease-in-out",
-        },
-
         ".—prx—title, .—prx—text" : {
           "width" : "100%",
           "display" : "table",
-          "transition" : "opacity .4s,transform .4s"
+          "-webkit-transition" : "opacity .4s,-webkit-transform .4s",
+          "transition" : "opacity .4s,-webkit-transform .4s",
+          "-o-transition" : "opacity .4s,transform .4s",
+          "transition" : "opacity .4s,transform .4s",
+          "transition" : "opacity .4s,transform .4s,-webkit-transform .4s",
         },
 
         ".—prx—title" : {
-          "display" : "table-header-group",
+          "display" : "block",
           "text-align" : "center",
           "vertical-align" : "top"
         },
 
         ".—prx—text" : {
-          "display" : "table-row",
+          "display" : "block",
           "vertical-align" : "middle"
         },
 
         ".—prx—text-box" : {
             "z-index" : 1,
+            "-webkit-transition" : "opacity .5s .4s, -webkit-transform .5s .4s",
+            "transition" : "opacity .5s .4s, -webkit-transform .5s .4s",
+            "-o-transition" : "opacity .5s .4s, transform .5s .4s",
             "transition" : "opacity .5s .4s, transform .5s .4s",
+            "transition" : "opacity .5s .4s, transform .5s .4s, -webkit-transform .5s .4s",
             "text-align" : "center",
             "max-height" : "100%",
-            "display" : "-webkit-flex",
+            "display" : "-webkit-box",
             "-webkit-flex-direction" : "column",
             "-ms-flex-direction" : "column",
             "flex-direction" : "column",
             "-webkit-box-orient" : "vertical",
-            "-webkit-flex-wrap" : "wrap",
-            "-ms-flex-wrap" : "wrap",
-            "flex-wrap" : "wrap",
+            "-webkit-box-pack" : "justify",
             "-webkit-justify-content" : "space-between",
             "justify-content" : "space-between",
             "height" : "100%",
@@ -426,12 +439,20 @@
         },
 
         ".—prx—text-box-1" : {
-            "display" : "-ms-flex",
-        },
+              "display" : "-webkit-flex",
+          },
 
-        ".—prx—text-box-2" : {
-            "display" : "flex",
-        },
+          ".—prx—text-box-2" : {
+              "display" : "-moz-box",
+          },
+
+          ".—prx—text-box-3" : {
+              "display" : "-ms-flexbox",
+          },
+
+          ".—prx—text-box-4" : {
+              "display" : "flex",
+          },
 
         ".—prx—text span" : {
           "vertical-align" : "middle",
@@ -441,28 +462,17 @@
     };
 
     var css_animations = {
-      "—prx—color-red" : {
+      "—prx—button-color" : {
         "from" : {
-          "background-color" : "#ff0000"
+          "filter" : "grayscale(60%)"
         },
         "50%" : {
-          "background-color" : "#a70505"
+          "filter" : "grayscale(0%)"
         },
         "to" : {
-          "background-color" : "#ff0000"
+          "filter" : "grayscale(60%)"
         }
       },
-      "—prx—color-green" : {
-        "from" : {
-          "background-color" : "#37c500"
-        },
-        "50%" : {
-          "background-color" : "#268700"
-        },
-        "to" : {
-          "background-color" : "#37c500"
-        }
-      }
     };
 
 
@@ -568,14 +578,18 @@
           "text-box" : {
               "p" : "content-box",
               "a" : {
-                  "class" : '—prx—text-box —prx—text-box-1 —prx—text-box-2'
+                  "class" : '—prx—text-box —prx—text-box-1 —prx—text-box-2 —prx—text-box-3 —prx—text-box-4'
               },
               "s" : {
                   "opacity" : 0,
+                  "-webkit-transform" : "translateX(-15%)",
+                  "-ms-transform" : "translateX(-15%)",
                   "transform" : "translateX(-15%)"
               },
               "g" : {
                   "opacity" : 1,
+                  "-webkit-transform" : "translateX(0)",
+                  "-ms-transform" : "translateX(0)",
                   "transform" : "translateX(0)"
               },
               "r" : function(e){
@@ -590,6 +604,7 @@
                       "border" : marg + "px solid rgba(0, 0, 0, 0)",
                       "-webkit-justify-content" : (o.portrait && data.button.display) ? "space-between" : "center",
                       "justify-content" : (o.portrait && data.button.display) ? "space-between" : "center",
+                      "-webkit-box-pack" : (o.portrait && data.button.display) ? "justify" : "center"
                   }
               }
           },
@@ -614,10 +629,11 @@
                 var d = e.device.type.mobile;
                 var o = e.device.orientation;
                 return {
-                  "display" : o.portrait ? "table-footer-group" : "block",
                   "position" : o.portrait ? "static" : "absolute",
                   "border-left-width" : o.landscape ? "20px" : "",
                   "width" : o.landscape ? "35%" : "",
+                  "-webkit-transform" : o.landscape ? "translateY(50%)" : "",
+                  "-ms-transform" : o.landscape ? "translateY(50%)" : "",
                   "transform" : o.landscape ? "translateY(50%)" : "",
                 }
               }
@@ -633,7 +649,7 @@
             "style-init" : function(init){
                 var ini = init.button ? init.button : init;
                 return {
-                    "animation-name" : '—prx—' + ini.animation,
+                    "background-color" : "#" + ini.bg_color,
                     "color" : "#" + ini.color,
                     "font-size" : ini.size + "em",
                     "font-weight" : ini.weight,
